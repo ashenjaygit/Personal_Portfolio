@@ -23,6 +23,28 @@
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
+
+    <!-- Smooth Scroll CSS -->
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Fix section scroll for fixed navbar */
+        section {
+            scroll-margin-top: 80px; /* adjust if navbar height changes */
+        }
+
+        /* Contact links styling */
+        .contact-item a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 
 <body>
@@ -30,12 +52,11 @@
     <!-- Navbar -->
     <nav class="navbar">
         <div class="container nav-container">
-            <a href="#" class="logo">Ashen<span>.Jayarathne</span></a>
+            <a href="#home" class="logo">Ashen<span>.Jayarathne</span></a>
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projects</a></li>
-
                 <li><a href="#contact">Contact</a></li>
                 <li><button id="theme-toggle" aria-label="Toggle Dark Mode"><i data-feather="moon"></i></button></li>
             </ul>
@@ -102,7 +123,6 @@
         <div class="container">
             <h2 class="section-title">Technical Skills</h2>
             <div class="skills-grid">
-                <!-- Skills will be populated here? Or static HTML for better control -->
                 <div class="skill-category">
                     <h3>Programming & Data</h3>
                     <div class="skill-tags">
@@ -151,13 +171,10 @@
             <h2 class="section-title">Projects</h2>
             <p class="section-subtitle">Auto-fetched from GitHub</p>
             <div id="projects-grid" class="projects-grid">
-                <!-- Project Cards injected by JS -->
                 <div class="loading">Loading projects...</div>
             </div>
         </div>
     </section>
-
-
 
     <!-- Contact Section -->
     <section id="contact" class="section contact-section">
@@ -167,15 +184,15 @@
                 <div class="contact-info">
                     <div class="contact-item">
                         <i data-feather="mail"></i>
-                        <p>ashenjayarathne.info@gmail.com</p>
+                        <a href="mailto:ashenjayarathne.info@gmail.com">ashenjayarathne.info@gmail.com</a>
                     </div>
                     <div class="contact-item">
                         <i data-feather="linkedin"></i>
-                        <p>linkedin.com/in/ashen-jayarathne</p>
+                        <a href="https://www.linkedin.com/in/ashen-jayarathne" target="_blank">linkedin.com/in/ashen-jayarathne</a>
                     </div>
                     <div class="contact-item">
                         <i data-feather="github"></i>
-                        <p>github.com/ashenjaygit</p>
+                        <a href="https://github.com/ashenjaygit" target="_blank">github.com/ashenjaygit</a>
                     </div>
                 </div>
 
@@ -195,6 +212,7 @@
         </div>
     </section>
 
+    <!-- Footer -->
     <footer>
         <div class="container">
             <p>&copy; 2025 Ashen Jayarathne </p>
@@ -203,10 +221,21 @@
 
     <!-- Scripts -->
     <script src="js/github-api.js"></script>
-
     <script src="js/main.js"></script>
     <script>
+        // Feather icons
         feather.replace();
+
+        // Smooth scrolling for all internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
     </script>
 </body>
 
