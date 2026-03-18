@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Colors - Dark Mode (Default) */
+  --bg-color: #030712;
+  /* Deepest Charcoal/Navy */
+  --text-main: #f3f4f6;
+  --text-muted: #9ca3af;
+
+  --primary: #22d3ee;
+  /* Cyan-400 */
+  --primary-glow: rgba(34, 211, 238, 0.4);
+
+  --secondary: #818cf8;
+  /* Indigo-400 */
+
+  --glass-bg: rgba(17, 24, 39, 0.7);
+  /* Gray-900 with opacity */
+  --glass-border: rgba(255, 255, 255, 0.08);
+
+  --card-bg: rgba(31, 41, 55, 0.6);
+  --card-border: rgba(255, 255, 255, 0.1);
+
+  --font-main: 'Inter', sans-serif;
+  --font-heading: 'Outfit', sans-serif;
+
+  --max-width: 1200px;
+}
+
+/* Light Mode Overrides (Optional, focusing on Dark Vibe first) */
+[data-theme='light'] {
+  --bg-color: #ffffff;
+  --text-main: #1f2937;
+  --text-muted: #6b7280;
+  --glass-bg: rgba(255, 255, 255, 0.8);
+  --glass-border: rgba(0, 0, 0, 0.1);
+  --card-bg: #f3f4f6;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-main);
+  background: var(--bg-color);
+  color: var(--text-main);
+  line-height: 1.6;
+  overflow-x: hidden;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-heading);
+  line-height: 1.2;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--card-border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
